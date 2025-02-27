@@ -21,7 +21,7 @@ def modify_config_txt():
     time.sleep(2)
 
 def install_dependencies():
-    print("Installing dependencies... (this may take a while)")
+    print("Installing dependencies... (this may take a while and appear to be stuck at upgradable packages, as it logs it all after)")
     run_command("sudo apt update")
     run_command("sudo apt install libusb-1.0-0-dev libudev-dev python3-pip")
 
