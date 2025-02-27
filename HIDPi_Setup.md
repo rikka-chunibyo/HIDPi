@@ -68,9 +68,9 @@ cd /sys/kernel/config/usb_gadget/hid_gadget && echo 0x0104 > idProduct
 mkdir -p /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409
 echo '1234567890' > 
 /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/serialnumber
-echo 'Raspberry Pi' > 
+echo 'Rikka' > 
 /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/manufacturer
-echo 'Pi HID Device' > 
+echo 'HIDPi' > 
 /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/product
 
 # Set up the HID function
