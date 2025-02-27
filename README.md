@@ -27,26 +27,27 @@ https://github.com/rikka-chunibyo/HIDPi/blob/47cc064092268af990a6a4d0df06f5e000b
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth then your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
 
 Here's an example ([example_usage.py](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/example_usage.py)):
+```python
+import time
 
-    import time
-    
-    HID_DEVICE = "/dev/hidg0"
-    
-    def send_key(modifier, key):
-        report = bytes([modifier, 0, key, 0, 0, 0, 0, 0])
-        with open(HID_DEVICE, "rb+") as fd:
-            fd.write(report)  # press
-            time.sleep(0.1)
-            fd.write(bytes(8))  # release
-    
-    # https://usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
-    KEY_A = 0x04
-    KEY_ENTER = 0x28
-    MOD_LEFT_CTRL = 0x01
-    
-    send_key(0, KEY_A) # a
-    send_key(MOD_CTRL, KEY_A) # ctrl a
-    send_key(0, KEY_ENTER) # enter
+HID_DEVICE = "/dev/hidg0"
+
+def send_key(modifier, key):
+    report = bytes([modifier, 0, key, 0, 0, 0, 0, 0])
+    with open(HID_DEVICE, "rb+") as fd:
+        fd.write(report)  # press
+        time.sleep(0.1)
+        fd.write(bytes(8))  # release
+
+# https://usb.org/sites/default/files/documents/hut1_12v2.pdf page 53
+KEY_A = 0x04
+KEY_ENTER = 0x28
+MOD_LEFT_CTRL = 0x01
+
+send_key(0, KEY_A) # a
+send_key(MOD_CTRL, KEY_A) # ctrl a
+send_key(0, KEY_ENTER) # enter
+```
 
 # Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
