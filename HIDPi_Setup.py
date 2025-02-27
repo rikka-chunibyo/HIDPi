@@ -35,8 +35,8 @@ def setup_hid_gadget():
     # Setting device details
     run_command("mkdir -p /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409")
     run_command("echo '1234567890' > /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/serialnumber")
-    run_command("echo 'Raspberry Pi' > /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/manufacturer")
-    run_command("echo 'Pi HID Device' > /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/product")
+    run_command("echo 'Rikka' > /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/manufacturer")
+    run_command("echo 'HIDPi' > /sys/kernel/config/usb_gadget/hid_gadget/strings/0x409/product")
     
     # HID function configuration
     run_command("mkdir -p /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb0")
