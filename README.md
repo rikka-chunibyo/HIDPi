@@ -11,6 +11,9 @@ To install it simply copy [HIDPi_Setup.py](https://github.com/rikka-chunibyo/HID
 
 If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
 
+If you want to edit the reported device details, just edit these using nano before running the script. If using the tutorial you can easily change them before copying the commands.
+https://github.com/rikka-chunibyo/HIDPi/blob/47cc064092268af990a6a4d0df06f5e000bdeb40/HIDPi_Setup.py#L37-L39
+
 ## Usage
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth then your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
 
