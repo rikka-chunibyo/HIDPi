@@ -7,7 +7,16 @@ I created this because I was getting really annoyed about the lack of info on us
 I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS lite (32-bit), Debian Bookworm. It probably works on 64-bit but I haven't tried it yet.
 
 ## Install
-To install it simply copy [HIDPi_Setup.py](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.py) to your Raspberry Pi and run it using `sudo python3 HIDPi_Setup.py`, then reboot. Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, try running the setup again (don't reinstall the OS or anything, just run the setup again).
+### Actual Install
+To install it simply copy [HIDPi_Setup.py](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.py) to your Raspberry Pi and run it using `sudo python3 HIDPi_Setup.py`, then reboot. 
+
+You could also just run 
+```sh
+curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_setup.py && sudo python3 HIDPi_setup.py && reboot
+```
+
+### Troubleshooting and Customizing
+Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, try running the setup again (don't reinstall the OS or anything, just run the setup again).
 
 If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
 
