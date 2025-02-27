@@ -12,7 +12,7 @@ To install it simply copy [HIDPi_Setup.py](https://github.com/rikka-chunibyo/HID
 
 You could also just run 
 ```sh
-curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_setup.py && sudo python3 HIDPi_setup.py && reboot
+curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_setup.py && sudo python3 HIDPi_setup.py && sudo reboot
 ```
 
 ### Troubleshooting and Customizing
