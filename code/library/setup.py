@@ -1,6 +1,6 @@
 from setuptools import setup
 
-from my_pip_package import __version__
+from hidpi import __version__
 
 setup(
     name='hidpi',
@@ -10,5 +10,5 @@ setup(
     author='Rikka Takanashi',
     author_email='',
 
-    py_modules=['hidpi'],
+    py_modules=['hidpi', 'hidpi_keys'],
 )
