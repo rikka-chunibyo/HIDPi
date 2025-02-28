@@ -17,6 +17,7 @@ Once it reboots, run this again
 ```sh
 sudo python3 HIDPi_Setup.py
 ```
+That's all! Take a look at Usage for an example on how to use HIDPi
 
 ### Casual
 Or if you want to go through it yourself (you may have to run `sudo apt upgrade -y` after `sudo apt update`)
@@ -30,6 +31,7 @@ Once it reboots, run this again
 ```sh
 sudo python3 HIDPi_Setup.py
 ```
+That's all! Take a look at Usage for an example on how to use HIDPi
 
 ### Manual
 If you're looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md).
