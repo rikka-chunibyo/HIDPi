@@ -17,6 +17,7 @@ Once it reboots, run this again
 sudo python3 HIDPi_Setup.py
 ```
 
+
 Or if you want to go through it yourself
 ```sh
 sudo apt update
@@ -30,7 +31,8 @@ Once it reboots, run this again
 sudo python3 HIDPi_Setup.py
 ```
 
-If your looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md).
+
+If you're looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md).
 
 ### Troubleshooting and Customizing
 Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, try running the setup again (don't reinstall the OS or anything, just run the setup again).
