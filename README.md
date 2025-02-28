@@ -15,7 +15,7 @@ sudo apt update && sudo apt upgrade -y && sudo apt install libusb-1.0-0-dev libu
 Or if you want to run it one yourself
 ```sh
 sudo apt update
-sudo apt upgrade -y
+sudo apt upgrade -y # optional, seems to work without it most of the time
 sudo apt install libusb-1.0-0-dev libudev-dev -y
 curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py
 sudo python3 HIDPi_Setup.py
