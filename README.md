@@ -82,7 +82,7 @@ If there's an issue while your using a different OS, please open an issue about 
 
 Not really about issues but if you have any suggestions for improvements or anything feel free to open a discussion about it.
 
-> [!INFO]
+> [!NOTE]
 > Keymap - Please tell me if something is wrong
 ```
 | Usage ID | Key           | Usage ID | Key          | Usage ID | Key           | Usage ID | Key         |
