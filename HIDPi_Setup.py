@@ -10,6 +10,18 @@ def run_command(command):
     else:
         print(out.decode().strip())
 
+# def run_logged_command(command):
+#     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#     for line in iter(process.stdout.readline, b''):
+#         print(line.decode().strip())
+#     for line in iter(process.stderr.readline, b''):
+#         print(line.decode().strip())
+#     process.stdout.close()
+#     process.stderr.close()
+#     process.wait()
+#     if process.returncode != 0:
+#         print(f"Error: Process ended with non-zero exit code {process.returncode}")
+
 def modify_config_txt():
     config_file = "/boot/firmware/config.txt"
     lines_to_add = ["dtoverlay=dwc2", "modules-load=dwc2,g_hid"]
@@ -20,10 +32,11 @@ def modify_config_txt():
     print("Added to /boot/firmware/config.txt.")
     time.sleep(2)
 
-def install_dependencies():
-    print("Installing dependencies... (this may take a while and appear to be stuck at upgradable packages, as it logs it all after)")
-    run_command("sudo apt update")
-    run_command("sudo apt install libusb-1.0-0-dev libudev-dev python3-pip")
+# def install_dependencies():
+#     print("Installing dependencies... (this may take a while)")
+#     time.sleep(2)
+#     run_command("sudo apt update")
+#     run_command("sudo apt install libusb-1.0-0-dev libudev-dev python3-pip")
 
 def setup_hid_gadget():
     print("Setting up HID gadget...")
@@ -74,7 +87,7 @@ def create_udev_rule():
 
 def main():
     modify_config_txt()
-    install_dependencies()
+    # install_dependencies()
     setup_hid_gadget()
     create_udev_rule()
     print("Script execution complete. Please reboot your system. After reboot `/dev/hidg0` should be available. If it isn't available, check under different numbers. If it still isn't available, you may have to run the setup file again (don't reinstall OS, literally just rerun the setup after reboot)")
