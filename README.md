@@ -8,11 +8,18 @@ I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS
 
 ## Install
 ### Actual Install
-To install it simply copy [HIDPi_Setup.py](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.py) to your Raspberry Pi and run it using `sudo python3 HIDPi_Setup.py`, then reboot. 
-
-You could also just run 
+Simply run this
 ```sh
-curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py && sudo python3 HIDPi_Setup.py && sudo reboot
+sudo apt update && sudo apt upgrade -y && sudo apt install libusb-1.0-0-dev libudev-dev -y && curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py && sudo python3 HIDPi_Setup.py && sudo reboot
+```
+Or if you want to run it one after another
+```sh
+sudo apt update
+sudo apt upgrade -y
+sudo apt install libusb-1.0-0-dev libudev-dev -y
+curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py
+sudo python3 HIDPi_Setup.py
+sudo reboot
 ```
 
 ### Troubleshooting and Customizing
