@@ -70,6 +70,6 @@ send_key(0, KEY_ENTER) # enter
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
 
-If there's an issue while your using a different OS, I would prefer it if you tested it on the suggested/tested OS, either way I'll still help though. If it ends up working on the suggested/tested OS, please open an issue about adding support for the OS that didn't work, I'd like this project to be as plug-and-play and simple as possible.
+If there's an issue while your using a different OS, please open an issue about adding support for it, I'd like this project to be as plug-and-play and simple as possible.
 
 Not really about issues but if you have any suggestions for improvements or anything feel free to open a discussion about it.
