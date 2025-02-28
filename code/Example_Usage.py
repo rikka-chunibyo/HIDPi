@@ -9,7 +9,6 @@ def send_key(modifier, key):
         time.sleep(0.1)
         fd.write(bytes(8))  # release
 
-# https://usb.org/sites/default/files/documents/hut1_12v2.pdf#10%20Keyboard/Keypad%20Page%20(0x07)
 KEY_A = 0x04
 KEY_ENTER = 0x28
 MOD_LEFT_CTRL = 0x01
