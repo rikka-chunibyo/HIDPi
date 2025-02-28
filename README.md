@@ -9,9 +9,9 @@ I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS
 ## Install
 
 ### 2 Commands
-Simply run this (you may have to run `sudo apt update && sudo apt upgrade -y` first)
+Simply run this (you may have to run `sudo apt upgrade -y` after `sudo apt update`)
 ```sh
-sudo apt install libusb-1.0-0-dev libudev-dev -y && curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py && sudo python3 HIDPi_Setup.py
+sudo apt update && sudo apt install libusb-1.0-0-dev libudev-dev -y && curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py && sudo python3 HIDPi_Setup.py
 ```
 Once it reboots, run this again
 ```sh
@@ -19,8 +19,9 @@ sudo python3 HIDPi_Setup.py
 ```
 
 ### Casual
-Or if you want to go through it yourself (you may have to run `sudo apt update && sudo apt upgrade -y` first)
+Or if you want to go through it yourself (you may have to run `sudo apt upgrade -y` after `sudo apt update`)
 ```sh
+sudo apt update
 sudo apt install libusb-1.0-0-dev libudev-dev -y
 curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py
 sudo python3 HIDPi_Setup.py
