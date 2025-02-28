@@ -36,7 +36,7 @@ def modify_config_txt():
 #     print("Installing dependencies... (this may take a while)")
 #     time.sleep(2)
 #     run_command("sudo apt update")
-#     run_command("sudo apt install libusb-1.0-0-dev libudev-dev python3-pip")
+#     run_command("sudo apt install libusb-1.0-0-dev libudev-dev")
 
 def setup_hid_gadget():
     print("Setting up HID gadget...")
