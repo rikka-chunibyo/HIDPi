@@ -32,7 +32,7 @@ If you're looking to run each individual command in the Python installer, follow
 If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/markdowns/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
 
 If you want to edit the reported device details, just edit these using nano before running the script. If using the tutorial you can easily change them before copying the commands.
-https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/code/HIDPi_Setup.py#L37-L39
+https://github.com/rikka-chunibyo/HIDPi/blob/5d8923c2a563fd5d4f914b0e31c02b067eabf2c9/code/HIDPi_Setup.py#L75-L77
 
 If `/dev/hidg0` doesn't exist, make sure to check under different numbers. If it still doesn't exist, more likely than not, something went wrong with the service, check the logs with this
 ```sh
@@ -66,13 +66,13 @@ It's okay to have those errors, if anything more than that fails, and you don't 
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth then your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
 
 Here's an example
-https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/code/Example_Usage.py#L1-L19
+https://github.com/rikka-chunibyo/HIDPi/blob/7604ef0926b04a2f643900d04b5d97695411f74a/code/Example_Usage.py#L1-L18
 
 Sendkey format is very simple
 
 ![](assets/sendkey.png)
 
-Just have to convert it using [this](https://usb.org/sites/default/files/documents/hut1_12v2.pdf#10%20Keyboard/Keypad%20Page%20(0x07)) table
+Just have to convert it using [this](https://usb.org/sites/default/files/documents/hut1_12v2.pdf#10%20Keyboard/Keypad%20Page%20(0x07)) table ([backup](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/assets/hut1_12v2.pdf) page 53)
 
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
