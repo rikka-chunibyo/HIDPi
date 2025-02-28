@@ -47,11 +47,6 @@ https://github.com/rikka-chunibyo/HIDPi/blob/47cc064092268af990a6a4d0df06f5e000b
 ## Usage
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth then your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
 
-By default `/dev/hidg0` is only accessable by root, I tried to change that in the install script by using the rule `KERNEL=="hidg*", MODE="0666"` but for some reason the permissions aren't changing. To use it as another user, execute this
-```sh
-sudo chmod 666 /dev/hidg0
-```
-
 Here's an example
 https://github.com/rikka-chunibyo/HIDPi/blob/04c8afad249296d99caa07483bd45afe567e3fc7/Example_Usage.py#L1-L19
 
