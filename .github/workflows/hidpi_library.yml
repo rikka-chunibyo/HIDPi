@@ -31,3 +31,16 @@ jobs:
         # Build the package and ensure the egg-info directory is created
         python ./code/library/setup.py bdist_egg
         python ./code/library/setup.py install
+
+    - name: Commit egg-info folder
+      run: |
+        # Ensure we're in the correct directory
+        cd ./code/library
+        # Add the egg-info directory to git
+        git add *.egg-info
+        # Commit the change
+        git commit -m "Add .egg-info directory"
+        # Push the commit back to the repository
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Provides authentication to push
