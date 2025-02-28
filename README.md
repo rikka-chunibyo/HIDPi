@@ -66,7 +66,7 @@ It's okay to have those errors, if anything more than that fails, and you don't 
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth then your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
 
 Here's an example
-https://github.com/rikka-chunibyo/HIDPi/blob/7604ef0926b04a2f643900d04b5d97695411f74a/code/Example_Usage.py#L1-L20
+https://github.com/rikka-chunibyo/HIDPi/blob/b5fe1766aa82766922e7c5726ed853d6a31ec3b1/code/Example_Usage.py#L1-L20
 
 Sendkey format is very simple
 
