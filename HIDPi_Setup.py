@@ -59,7 +59,7 @@ def modify_config_txt():
         with open(CONFIG_FILE, "a") as f:
             f.write("\n" + "\n".join(LINES_TO_ADD) + "\n")
 
-        print("Config updated. Rebooting in 10 seconds...")
+        print("Config updated. Rebooting in 10 seconds... Once booted, you should be able to access `/dev/hidg0`")
         time.sleep(10)
         run_command("sudo reboot")
 
