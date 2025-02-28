@@ -50,6 +50,10 @@ Since it's so basic of an implementation (seriously why can't I find another rep
 Here's an example:
 https://github.com/rikka-chunibyo/HIDPi/blob/04c8afad249296d99caa07483bd45afe567e3fc7/Example_Usage.py#L1-L19
 
+Sendkey format is very simple
+
+![](assets/sendkey.png)
+
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
 
