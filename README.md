@@ -85,42 +85,42 @@ Not really about issues but if you have any suggestions for improvements or anyt
 > [!NOTE]
 > Keymap - Please tell me if something is wrong
 ```
-| Usage ID | Key           | Usage ID | Key          | Usage ID | Key           | Usage ID | Key         |
-|----------|---------------|----------|--------------|----------|---------------|----------|-------------|
-| 0x00     | None          | 0x0D     | Tab          | 0x1A     | Z             | 0x27     | 0           |
-| 0x01     | ErrorRollOver | 0x0E     | ` ~          | 0x1B     | X             | 0x28     | Enter       |
-| 0x02     | LeftShift     | 0x0F     | - _          | 0x1C     | C             | 0x29     | Escape      |
-| 0x03     | ErrorUndefined| 0x10     | = +          | 0x1D     | V             | 0x2A     | Backspace   |
-| 0x04     | A             | 0x11     | [ {          | 0x1E     | B             | 0x2B     | Tab         |
-| 0x05     | B             | 0x12     | ] }          | 0x1F     | M             | 0x2C     | Space       |
-| 0x06     | C             | 0x13     | \ |          | 0x20     | N             | 0x2D     | - _         |
-| 0x07     | D             | 0x14     | ; :          | 0x21     | , <           | 0x2E     | = +         |
-| 0x08     | E             | 0x15     | ' "          | 0x22     | . >           | 0x2F     | [ {         |
-| 0x09     | F             | 0x16     | ` ~          | 0x23     | / ?           | 0x30     | ] }         |
-| 0x0A     | G             | 0x17     | CapsLock     | 0x24     | F1            | 0x31     | \ |         |
-| 0x0B     | H             | 0x18     | LShift       | 0x25     | F2            | 0x32     | ; :         |
-| 0x0C     | I             | 0x19     | LControl     | 0x26     | F3            | 0x33     | ' "         |
-| 0x34     | ` ~           | 0x3A     | F9           | 0x40     | F15           | 0x4C     | Insert      |
-| 0x35     | F1            | 0x3B     | F10          | 0x41     | F16           | 0x4D     | Home        |
-| 0x36     | F2            | 0x3C     | F11          | 0x42     | F17           | 0x4E     | PageUp      |
-| 0x37     | F3            | 0x3D     | F12          | 0x43     | F18           | 0x4F     | Delete      |
-| 0x38     | F4            | 0x3E     | F13          | 0x44     | F19           | 0x50     | End         |
-| 0x39     | F5            | 0x3F     | F14          | 0x45     | F20           | 0x51     | PageDown    |
-| 0x52     | Up            | 0x53     | Down         | 0x54     | Right         | 0x55     | Left        |
-| 0x56     | NumLock       | 0x57     | Keypad /     | 0x58     | Keypad *      | 0x59     | Keypad -    |
-| 0x5A     | Keypad +      | 0x5B     | Keypad Enter | 0x5C     | Keypad 1      | 0x5D     | Keypad 2    |
-| 0x5E     | Keypad 3      | 0x5F     | Keypad 4     | 0x60     | Keypad 5      | 0x61     | Keypad 6    |
-| 0x62     | Keypad 7      | 0x63     | Keypad 8     | 0x64     | Keypad 9      | 0x65     | Keypad 0    |
-| 0x66     | Keypad .      | 0x67     | Intl1        | 0x68     | Intl2         | 0x69     | Intl3       |
-| 0x6A     | Intl4         | 0x6B     | Intl5        | 0x6C     | Intl6         | 0x6D     | Intl7       |
-| 0x6E     | Intl8         | 0x6F     | Intl9        | 0x70     | Lang1         | 0x71     | Lang2       |
-| 0x72     | Lang3         | 0x73     | Lang4        | 0x74     | Lang5         | 0x75     | Lang6       |
-| 0x76     | Lang7         | 0x77     | Lang8        | 0x78     | Lang9         | 0x79     | AltErase    |
-| 0x7A     | SysReq        | 0x7B     | Cancel       | 0x7C     | Clear         | 0x7D     | Prior       |
-| 0x7E     | Return        | 0x7F     | Separator    | 0x80     | Out           | 0x81     | Oper        |
-| 0x82     | ClearAgain    | 0x83     | CrSel        | 0x84     | ExSel         | 0xE0     | LeftCtrl    |
-| 0xE1     | LeftAlt       | 0xE2     | RightShift   | 0xE3     | LeftControl   | 0xE4     | RightCtrl   |
-| 0xE5     | RightShift    | 0xE6     | RightAlt     | 0xE7     | RightGUI      | 0xE8     | MediaPlay   |
-| 0xE9     | MediaPause    | 0xEA     | MediaRecord  | 0xEB     | MediaFastForward| 0xEC   | MediaRewind |
-| 0xED     | MediaNext     | 0xEE     | MediaPrevious| 0xEF     | MediaStop     | 0xF0     | MediaEject  |
+| Usage ID | Key            | Usage ID | Key            | Usage ID | Key           | Usage ID | Key         |
+|----------|----------------|----------|----------------|----------|---------------|----------|-------------|
+| 0x00     | None           | 0x01     | ErrorRollOver  | 0x02     | POSTFail      | 0x03     | ErrorUndefined |
+| 0x04     | A              | 0x05     | B              | 0x06     | C             | 0x07     | D           |
+| 0x08     | E              | 0x09     | F              | 0x0A     | G             | 0x0B     | H           |
+| 0x0C     | I              | 0x0D     | J              | 0x0E     | K             | 0x0F     | L           |
+| 0x10     | M              | 0x11     | N              | 0x12     | O             | 0x13     | P           |
+| 0x14     | Q              | 0x15     | R              | 0x16     | S             | 0x17     | T           |
+| 0x18     | U              | 0x19     | V              | 0x1A     | W             | 0x1B     | X           |
+| 0x1C     | Y              | 0x1D     | Z              | 0x1E     | 1             | 0x1F     | 2           |
+| 0x20     | 3              | 0x21     | 4              | 0x22     | 5             | 0x23     | 6           |
+| 0x24     | 7              | 0x25     | 8              | 0x26     | 9             | 0x27     | 0           |
+| 0x28     | Enter          | 0x29     | Tab            | 0x2A     | Space         | 0x2B     | Backspace   |
+| 0x2C     | LeftArrow      | 0x2D     | RightArrow     | 0x2E     | UpArrow       | 0x2F     | DownArrow   |
+| 0x30     | PageUp         | 0x31     | PageDown       | 0x32     | Home          | 0x33     | End         |
+| 0x34     | Insert         | 0x35     | Delete         | 0x36     | PrintScreen   | 0x37     | ScrollLock  |
+| 0x38     | NumLock        | 0x39     | Keypad /       | 0x3A     | Keypad *      | 0x3B     | Keypad -    |
+| 0x3C     | Keypad 7       | 0x3D     | Keypad 8       | 0x3E     | Keypad 9      | 0x3F     | Keypad +    |
+| 0x40     | Keypad 4       | 0x41     | Keypad 5       | 0x42     | Keypad 6      | 0x43     | Keypad 1    |
+| 0x44     | Keypad 2       | 0x45     | Keypad 3       | 0x46     | Keypad 0      | 0x47     | Keypad .    |
+| 0x48     | LeftCtrl       | 0x49     | RightCtrl      | 0x4A     | LeftShift     | 0x4B     | RightShift  |
+| 0x4C     | LeftAlt        | 0x4D     | RightAlt       | 0x4E     | LeftGUI       | 0x4F     | RightGUI    |
+| 0x50     | LeftArrow      | 0x51     | RightArrow     | 0x52     | UpArrow       | 0x53     | DownArrow   |
+| 0x54     | NumLock        | 0x55     | Keypad /       | 0x56     | Keypad *      | 0x57     | Keypad -    |
+| 0x58     | Keypad +       | 0x59     | Keypad Enter   | 0x5A     | Keypad 1      | 0x5B     | Keypad 2    |
+| 0x5C     | Keypad 3       | 0x5D     | Keypad 4       | 0x5E     | Keypad 5      | 0x5F     | Keypad 6    |
+| 0x60     | Keypad 7       | 0x61     | Keypad 8       | 0x62     | Keypad 9      | 0x63     | Keypad 0    |
+| 0x64     | Keypad .       | 0x65     | Media Play     | 0x66     | Media Pause   | 0x67     | Media Stop  |
+| 0x68     | Media Eject    | 0x69     | Media Record   | 0x6A     | Media Next    | 0x6B     | Media Prev  |
+| 0x6C     | Media Mute     | 0x6D     | Volume Up      | 0x6E     | Volume Down   | 0x6F     | BrightnessUp|
+| 0x70     | BrightnessDown | 0x71     | Scroll Lock    | 0x72     | SysReq        | 0x73     | Cancel      |
+| 0x74     | Clear          | 0x75     | Prior          | 0x76     | Return        | 0x77     | Separator   |
+| 0x78     | Out            | 0x79     | Oper           | 0x7A     | ClearAgain    | 0x7B     | CrSel       |
+| 0x7C     | ExSel          | 0x7D     | LeftCtrl       | 0x7E     | RightCtrl     | 0x7F     | LeftShift   |
+| 0xE0     | LeftCtrl       | 0xE1     | LeftAlt        | 0xE2     | RightShift    | 0xE3     | LeftControl |
+| 0xE4     | RightCtrl      | 0xE5     | RightShift     | 0xE6     | RightAlt      | 0xE7     | RightGUI    |
+| 0xE8     | Media Play     | 0xE9     | Media Pause    | 0xEA     | Media Record  | 0xEB     | Media FastForward|
+| 0xEC     | Media Rewind   | 0xED     | Media Next     | 0xEE     | Media Prev    | 0xEF     | Media Stop  |
 ```
