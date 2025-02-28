@@ -29,10 +29,33 @@ It will reboot itself, and that's all! Take a look at [Usage](#usage) for an exa
 If you're looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md).
 
 ### Troubleshooting and Customizing the Install
-Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, try running the setup again (don't reinstall the OS or anything, just run the setup again). If this works most likely the service failed to start for some reason, create an issue with the logs (get them with 
+Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, check the initialization service logs
 ```sh
 journalctl -xeu HIDPi
 ```
+It should look something like this
+```
+Feb 28 02:10:30 rikka python3[1914]: Creating systemd service...
+Feb 28 02:10:30 rikka python3[1914]: HIDPi service installed. It will run on next boot.
+Feb 28 02:10:30 rikka python3[1914]: Config already modified.
+Feb 28 02:10:30 rikka python3[1914]: Setting up HID gadget...
+Feb 28 02:10:30 rikka python3[1914]: Error: /bin/sh: 1: echo: echo: I/O error
+Feb 28 02:10:30 rikka python3[1914]: Error: /bin/sh: 1: echo: echo: I/O error
+Feb 28 02:10:30 rikka python3[1914]: Error: /bin/sh: 1: echo: echo: I/O error
+Feb 28 02:10:30 rikka python3[1914]: Error: cat: write error: Device or resource busy
+Feb 28 02:10:30 rikka python3[1914]: Error: ln: failed to create symbolic link '/sys/kernel/config/usb_gadget/hid_g>
+Feb 28 02:10:30 rikka python3[1914]: Error: ls: write error: Device or resource busy
+Feb 28 02:10:30 rikka python3[1914]: Creating udev rule for hidg...
+Feb 28 02:10:30 rikka python3[1914]: Udev rules reloaded.
+Feb 28 02:10:30 rikka python3[1914]: HIDPi Initialized
+Feb 28 02:10:30 rikka systemd[1]: HIDPi.service: Deactivated successfully.
+░░ Subject: Unit succeeded
+░░ Defined-By: systemd
+░░ Support: https://www.debian.org/support
+░░
+░░ The unit HIDPi.service has successfully entered the 'dead' state.
+```
+It's okay to have those errors, if anything more than that fails, and you don't know how to resolve it, create an issue with the logs. It's okay to have what is shown faling in my log to fail, I just didn't make it stop trying those on reboot, which could have some benifits like fixing itself if something corrupts or gets deleted ¯\_(ツ)_/¯ All it's doing is rerunning the installer via a service on startup.
 
 If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
 
