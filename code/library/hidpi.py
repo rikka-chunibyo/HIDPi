@@ -1,3 +1,5 @@
+__version__ = 'dev'
+
 import time
 from hidpi_keys import *
 
