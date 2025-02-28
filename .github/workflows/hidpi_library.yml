@@ -27,4 +27,7 @@ jobs:
         pip install setuptools  # Install setuptools
 
     - name: Build Python Package
-      run: python ./code/library/setup.py install
+      run: |
+        # Build the package and ensure the egg-info directory is created
+        python ./code/library/setup.py bdist_egg
+        python ./code/library/setup.py install
