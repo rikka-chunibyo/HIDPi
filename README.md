@@ -10,17 +10,27 @@ I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS
 ### Actual Install
 Simply run this
 ```sh
-sudo apt update && sudo apt upgrade -y && sudo apt install libusb-1.0-0-dev libudev-dev -y && curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py && sudo python3 HIDPi_Setup.py && sudo reboot
+sudo apt update && sudo apt upgrade -y && sudo apt install libusb-1.0-0-dev libudev-dev -y && curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py && sudo python3 HIDPi_Setup.py
 ```
-Or if you want to run it one yourself
+Once it reboots, run this again
+```sh
+sudo python3 HIDPi_Setup.py
+```
+
+Or if you want to go through it yourself
 ```sh
 sudo apt update
 sudo apt upgrade -y # optional, seems to work without it most of the time
 sudo apt install libusb-1.0-0-dev libudev-dev -y
 curl https://raw.githubusercontent.com/rikka-chunibyo/HIDPi/refs/heads/master/HIDPi_Setup.py -o HIDPi_Setup.py
 sudo python3 HIDPi_Setup.py
-sudo reboot
 ```
+Once it reboots, run this again
+```sh
+sudo python3 HIDPi_Setup.py
+```
+
+If your looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md).
 
 ### Troubleshooting and Customizing
 Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, try running the setup again (don't reinstall the OS or anything, just run the setup again).
