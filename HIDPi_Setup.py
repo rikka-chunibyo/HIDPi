@@ -116,7 +116,7 @@ def main():
     modify_config_txt()
     setup_hid_gadget()
     create_udev_rule()
-    print("Setup complete. Reboot for changes to take effect.")
+    print("HIDPi Initialized")
 
 if __name__ == "__main__":
     main()
