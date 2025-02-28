@@ -3,8 +3,9 @@ import shutil
 import time
 import subprocess
 
-INSTALL_PATH = "/usr/local/bin/hid_setup.py"
-SERVICE_PATH = "/etc/systemd/system/hid_setup.service"
+INSTALL_PATH = "/usr/local/bin/HIDPi.py"
+SERVICE_NAME = "HIDPi"
+SERVICE_PATH = f"/etc/systemd/system/{SERVICE_NAME}.service"
 CONFIG_FILE = "/boot/firmware/config.txt"
 LINES_TO_ADD = ["dtoverlay=dwc2", "modules-load=dwc2,g_hid"]
 
@@ -23,7 +24,7 @@ def install_self():
         os.chmod(INSTALL_PATH, 0o755)
 
     service_content = f"""[Unit]
-Description=HID Gadget Setup
+Description=HIDPi Initialization
 After=network.target
 
 [Service]
@@ -39,8 +40,8 @@ WantedBy=multi-user.target
         f.write(service_content)
 
     run_command("sudo systemctl daemon-reload")
-    run_command("sudo systemctl enable hid_setup.service")
-    print("Service installed. It will run on next boot.")
+    run_command(f"sudo systemctl enable {SERVICE_NAME}.service")
+    print(f"{SERVICE_NAME} service installed. It will run on next boot.")
     
 def check_config():
     try:
