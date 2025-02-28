@@ -60,7 +60,7 @@ Feb 28 02:10:30 rikka systemd[1]: HIDPi.service: Deactivated successfully.
 ░░
 ░░ The unit HIDPi.service has successfully entered the 'dead' state.
 ```
-It's okay to have those errors, if anything more than that fails, and you don't know how to resolve it, create an issue with the logs. It's okay to have what is shown faling in my log to fail, I just didn't make it stop trying those on reboot, which could have some benifits like fixing itself if something corrupts or gets deleted ¯\\_(ツ)_/¯ All it's doing is rerunning the installer via a service on startup.
+It's okay to have those errors, if anything more than that fails, and you don't know how to resolve it, create an issue with the logs. It's okay to have what is shown faling in my log to fail, I just didn't make it stop trying those on reboot, which could have some benifits like fixing itself if something corrupts or gets deleted ¯\\\_(ツ)\_/¯ All it's doing is rerunning the installer via a service on startup.
 
 ## Usage
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth than your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
