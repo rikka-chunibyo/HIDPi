@@ -1,6 +1,6 @@
 # HIDPi
 ## About This Project
-This project focuses on a simple way to set up a Raspberry Pi 4B (and maybe others) as a USB HID device. 
+This project focuses on a simple way to set up a Raspberry Pi 4B (and maybe others) as a USB HID device. It can be installed via a one-liner.
 
 I created this because I was getting really annoyed about the lack of info on using Pis other than the Zero as USB HID devices. There are many posts that mention doing it, but they never seem to work. There are also many posts saying only the Pico or Zero can do it.
 
