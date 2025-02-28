@@ -81,3 +81,46 @@ I usually respond fast, I honestly don't know much about all of this, I just scr
 If there's an issue while your using a different OS, please open an issue about adding support for it, I'd like this project to be as plug-and-play and simple as possible.
 
 Not really about issues but if you have any suggestions for improvements or anything feel free to open a discussion about it.
+
+> [!INFO]
+> Keymap - Please tell me if something is wrong
+```
+| Usage ID | Key           | Usage ID | Key          | Usage ID | Key           | Usage ID | Key         |
+|----------|---------------|----------|--------------|----------|---------------|----------|-------------|
+| 0x00     | None          | 0x0D     | Tab          | 0x1A     | Z             | 0x27     | 0           |
+| 0x01     | ErrorRollOver | 0x0E     | ` ~          | 0x1B     | X             | 0x28     | Enter       |
+| 0x02     | LeftShift     | 0x0F     | - _          | 0x1C     | C             | 0x29     | Escape      |
+| 0x03     | ErrorUndefined| 0x10     | = +          | 0x1D     | V             | 0x2A     | Backspace   |
+| 0x04     | A             | 0x11     | [ {          | 0x1E     | B             | 0x2B     | Tab         |
+| 0x05     | B             | 0x12     | ] }          | 0x1F     | M             | 0x2C     | Space       |
+| 0x06     | C             | 0x13     | \ |          | 0x20     | N             | 0x2D     | - _         |
+| 0x07     | D             | 0x14     | ; :          | 0x21     | , <           | 0x2E     | = +         |
+| 0x08     | E             | 0x15     | ' "          | 0x22     | . >           | 0x2F     | [ {         |
+| 0x09     | F             | 0x16     | ` ~          | 0x23     | / ?           | 0x30     | ] }         |
+| 0x0A     | G             | 0x17     | CapsLock     | 0x24     | F1            | 0x31     | \ |         |
+| 0x0B     | H             | 0x18     | LShift       | 0x25     | F2            | 0x32     | ; :         |
+| 0x0C     | I             | 0x19     | LControl     | 0x26     | F3            | 0x33     | ' "         |
+| 0x34     | ` ~           | 0x3A     | F9           | 0x40     | F15           | 0x4C     | Insert      |
+| 0x35     | F1            | 0x3B     | F10          | 0x41     | F16           | 0x4D     | Home        |
+| 0x36     | F2            | 0x3C     | F11          | 0x42     | F17           | 0x4E     | PageUp      |
+| 0x37     | F3            | 0x3D     | F12          | 0x43     | F18           | 0x4F     | Delete      |
+| 0x38     | F4            | 0x3E     | F13          | 0x44     | F19           | 0x50     | End         |
+| 0x39     | F5            | 0x3F     | F14          | 0x45     | F20           | 0x51     | PageDown    |
+| 0x52     | Up            | 0x53     | Down         | 0x54     | Right         | 0x55     | Left        |
+| 0x56     | NumLock       | 0x57     | Keypad /     | 0x58     | Keypad *      | 0x59     | Keypad -    |
+| 0x5A     | Keypad +      | 0x5B     | Keypad Enter | 0x5C     | Keypad 1      | 0x5D     | Keypad 2    |
+| 0x5E     | Keypad 3      | 0x5F     | Keypad 4     | 0x60     | Keypad 5      | 0x61     | Keypad 6    |
+| 0x62     | Keypad 7      | 0x63     | Keypad 8     | 0x64     | Keypad 9      | 0x65     | Keypad 0    |
+| 0x66     | Keypad .      | 0x67     | Intl1        | 0x68     | Intl2         | 0x69     | Intl3       |
+| 0x6A     | Intl4         | 0x6B     | Intl5        | 0x6C     | Intl6         | 0x6D     | Intl7       |
+| 0x6E     | Intl8         | 0x6F     | Intl9        | 0x70     | Lang1         | 0x71     | Lang2       |
+| 0x72     | Lang3         | 0x73     | Lang4        | 0x74     | Lang5         | 0x75     | Lang6       |
+| 0x76     | Lang7         | 0x77     | Lang8        | 0x78     | Lang9         | 0x79     | AltErase    |
+| 0x7A     | SysReq        | 0x7B     | Cancel       | 0x7C     | Clear         | 0x7D     | Prior       |
+| 0x7E     | Return        | 0x7F     | Separator    | 0x80     | Out           | 0x81     | Oper        |
+| 0x82     | ClearAgain    | 0x83     | CrSel        | 0x84     | ExSel         | 0xE0     | LeftCtrl    |
+| 0xE1     | LeftAlt       | 0xE2     | RightShift   | 0xE3     | LeftControl   | 0xE4     | RightCtrl   |
+| 0xE5     | RightShift    | 0xE6     | RightAlt     | 0xE7     | RightGUI      | 0xE8     | MediaPlay   |
+| 0xE9     | MediaPause    | 0xEA     | MediaRecord  | 0xEB     | MediaFastForward| 0xEC   | MediaRewind |
+| 0xED     | MediaNext     | 0xEE     | MediaPrevious| 0xEF     | MediaStop     | 0xF0     | MediaEject  |
+```
