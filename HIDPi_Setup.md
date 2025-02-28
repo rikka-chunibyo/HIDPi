@@ -1,3 +1,5 @@
+# OUTDATED - WILL RECREATE
+
 I had ChatGPT make an install tutorial for if the script ever fails, enjoy!
 
 Here’s a step-by-step tutorial for setting up the HID gadget on a 
