@@ -29,7 +29,7 @@ It will reboot itself, and that's all! Take a look at [Usage](#usage) for an exa
 If you're looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/markdowns/HIDPi_Setup.md).
 
 ### Troubleshooting and Customizing the Install
-If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/markdowns/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
+If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/markdowns/HIDPi_Setup.md).
 
 If you want to edit the reported device details, just edit these using nano before running the script. If using the tutorial you can easily change them before copying the commands.
 https://github.com/rikka-chunibyo/HIDPi/blob/5d8923c2a563fd5d4f914b0e31c02b067eabf2c9/code/HIDPi_Setup.py#L75-L77
@@ -72,7 +72,8 @@ Sendkey format is very simple
 
 ![](assets/sendkey.png)
 
-Just have to convert it using [this](https://usb.org/sites/default/files/documents/hut1_12v2.pdf#10%20Keyboard/Keypad%20Page%20(0x07)) table ([backup](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/assets/hut1_12v2.pdf) page 53)
+### How do I get Keycodes?
+Using [this](https://usb.org/sites/default/files/documents/hut1_12v2.pdf#10%20Keyboard/Keypad%20Page%20(0x07)) table ([backup](https://github.com/rikka-chunibyo/HIDPi/refs/heads/master/assets/hut1_12v2.pdf) page 53)
 
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
