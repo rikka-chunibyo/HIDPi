@@ -75,9 +75,6 @@ Sendkey format is very simple
 > [!TIP]
 > You can find info about keycodes using [this](https://usb.org/sites/default/files/documents/hut1_12v2.pdf#10%20Keyboard/Keypad%20Page%20(0x07)) table ([backup](assets/hut1_12v2.pdf) page 53)
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
 
