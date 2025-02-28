@@ -29,7 +29,7 @@ After=network.target
 
 [Service]
 ExecStart=/usr/bin/python3 {INSTALL_PATH}
-Restart=always
+Restart=on-failure
 User=root
 
 [Install]
