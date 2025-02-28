@@ -42,5 +42,3 @@ jobs:
         git commit -m "Add .egg-info directory"
         # Push the commit back to the repository
         git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Provides authentication to push
