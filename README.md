@@ -29,7 +29,12 @@ It will reboot itself, and that's all! Take a look at [Usage](#usage) for an exa
 If you're looking to run each individual command in the Python installer, follow this guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md).
 
 ### Troubleshooting and Customizing the Install
-Check if `/dev/hidg0` exists, if it doesn't make sure to check under different numbers. If it still doesn't exist, check the initialization service logs
+If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
+
+If you want to edit the reported device details, just edit these using nano before running the script. If using the tutorial you can easily change them before copying the commands.
+https://github.com/rikka-chunibyo/HIDPi/blob/47cc064092268af990a6a4d0df06f5e000bdeb40/HIDPi_Setup.py#L37-L39
+
+If `/dev/hidg0` doesn't exist, make sure to check under different numbers. If it still doesn't exist, more likely than not, something went wrong with the service, check the logs with this
 ```sh
 journalctl -xeu HIDPi
 ```
@@ -56,11 +61,6 @@ Feb 28 02:10:30 rikka systemd[1]: HIDPi.service: Deactivated successfully.
 ░░ The unit HIDPi.service has successfully entered the 'dead' state.
 ```
 It's okay to have those errors, if anything more than that fails, and you don't know how to resolve it, create an issue with the logs. It's okay to have what is shown faling in my log to fail, I just didn't make it stop trying those on reboot, which could have some benifits like fixing itself if something corrupts or gets deleted ¯\_(ツ)_/¯ All it's doing is rerunning the installer via a service on startup.
-
-If the install fails for whatever reason you can try installing it by following the AI-generated guide [HIDPi_Setup.md](https://github.com/rikka-chunibyo/HIDPi/blob/fd94a5a43bf75b7723eb34bdf506ec681762cc8b/HIDPi_Setup.md), I have no clue if it's right, I didn't bother making it myself because the script hasn't failed for me. If the guide doesn't work feel free to create an issue and I'll rewrite it myself.
-
-If you want to edit the reported device details, just edit these using nano before running the script. If using the tutorial you can easily change them before copying the commands.
-https://github.com/rikka-chunibyo/HIDPi/blob/47cc064092268af990a6a4d0df06f5e000bdeb40/HIDPi_Setup.py#L37-L39
 
 ## Usage
 Since it's so basic of an implementation (seriously why can't I find another repo on this that just works???), the code is slightly more in-depth then your common HID libraries, but it's still really simple. I'll probably make a library for it soon which literally just removes the need to manually add the keys.
