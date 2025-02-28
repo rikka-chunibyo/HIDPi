@@ -15,5 +15,5 @@ KEY_ENTER = 0x28
 MOD_LEFT_CTRL = 0x01
 
 send_key(0, KEY_A) # a
-send_key(MOD_CTRL, KEY_A) # ctrl a
+send_key(MOD_LEFT_CTRL, KEY_A) # ctrl a
 send_key(0, KEY_ENTER) # enter
