@@ -25,16 +25,14 @@ def check_config():
 
 def modify_config_txt():
     if check_config():
-        print("Both 'dtoverlay=dwc2' and 'modules-load=dwc2,g_hid' found. Continuing.")
+        print("Both 'dtoverlay=dwc2' and 'modules-load=dwc2,g_hid' found.")
     else:
-        print("Required entries not found, adding them and rebooting. Rerun the installer once booted.")
+        print("Required entries not found, adding them.")
         
         with open(config_file, "a") as f:
             f.write("\n" + "\n".join(lines_to_add) + "\n")
     
         print("Added to /boot/firmware/config.txt.")
-        time.sleep(10)
-        run_command("sudo reboot")
         
     time.sleep(2)
 
@@ -83,13 +81,16 @@ def create_udev_rule():
         f.write("KERNEL==\"hidg*\", MODE=\"0666\"\n")
     
     run_command("sudo udevadm control --reload-rules")
-    print("Udev rules reloaded. Please reboot your system.")
+    print("Udev rules reloaded.")
 
 def main():
     modify_config_txt()
     setup_hid_gadget()
     create_udev_rule()
-    print("Script execution complete. Please reboot your system. After reboot `/dev/hidg0` should be available. If it isn't available, check under different numbers. If it still isn't available, you may have to run the setup file again (don't reinstall OS, literally just rerun the setup after reboot)")
+    if !os.path.isfile("/dev/hidg0"):
+        print("Script execution complete. Please reboot your system and run the installer a second time to finish the setup.")
+    else:
+        print("Installation complete, you should be able to access `/dev/hidg0` now.")
 
 if __name__ == "__main__":
     main()
