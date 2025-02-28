@@ -84,7 +84,9 @@ def create_udev_rule():
         f.write("KERNEL==\"hidg*\", MODE=\"0666\"\n")
     
     run_command("sudo udevadm control --reload-rules")
-    print("Udev rules reloaded. Please reboot your system.")
+    print("Udev rules reloaded.")
+    print("Settings permissions for active session...")
+    run_command("sudo chmod 666 /dev/hidg0")
 
 def main():
     modify_config_txt()
