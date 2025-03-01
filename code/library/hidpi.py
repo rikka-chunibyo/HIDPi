@@ -5,8 +5,8 @@ from hidpi_keys import *
 
 HID_DEVICE = "/dev/hidg0"
 
-def char_to_keycode(char):
-    """Takes in a character and returns a keycode. The result will always be lowercase"""
+def char_to_hex(char):
+    """Takes in a character and returns a hex keycode. The result will always be lowercase"""
     char_lowered = char.lower()
     return KEY_MAPPINGS[char_lowered] if char_lowered in KEY_MAPPINGS else 0x00
 
@@ -26,11 +26,11 @@ def send_text(text):
     """Sends a string of text, handling lowercase, uppercase, numbers, and special characters"""
     for char in text:
         if char.islower():
-            send_key(char_to_keycode(char))
+            send_key(char_to_hex(char))
         elif char.isupper():
-            send_key(KEY_LEFT_SHIFT, char_to_keycode(char))
+            send_key(KEY_LEFT_SHIFT, char_to_hex(char))
         else:
-            send_key(char_to_keycode(char))
+            send_key(char_to_hex(char))
 
 def send_enter():
     """Sends the Enter key"""
