@@ -82,10 +82,10 @@ KEY_F17 = 0x6C
 KEY_F18 = 0x6D
 KEY_F19 = 0x6E
 KEY_F20 = 0x6F
-KEY_F21 = 0x70
-KEY_F22 = 0x71
-KEY_F23 = 0x72
-KEY_F24 = 0x73
+# KEY_F21 = 0x70 not working for some reason
+# KEY_F22 = 0x71 not working for some reason
+# KEY_F23 = 0x72 not working for some reason
+# KEY_F24 = 0x73 not working for some reason
 
 KEY_MEDIA_PLAY = 0xB0
 KEY_MEDIA_PAUSE = 0xB1
