@@ -20,7 +20,7 @@ def send_key(*keys):
     
     with open(HID_DEVICE, "rb+") as fd:
         fd.write(bytes(report)) 
-        fd.write(bytes([0, 0, 0, 0, 0, 0, 0, 0]))
+        fd.write(bytes(8))
 
 def send_text(text):
     """Sends a string of text, handling lowercase, uppercase, numbers, and special characters"""
