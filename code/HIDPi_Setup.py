@@ -102,8 +102,8 @@ def setup_hid_gadget():
 
     # CONTROLLER
     # run_command("mkdir -p /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb2")
-    # run_command("echo 1 > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb2/protocol")  # Boot protocol
-    # run_command("echo 1 > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb2/subclass")  # Gamepad subclass
+    # run_command("echo 1 > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb2/protocol")
+    # run_command("echo 1 > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb2/subclass")
     # run_command("echo 64 > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb2/report_length")
 
     # gamepad_desc = b"\x05\x01\x09\x05\xa1\x01\xa1\x02\x85\x01\x05\x09\x19\x01\x29\x10\x15\x00\x25\x01\x75\x01\x95\x10\x81\x02\x05\x01\x09\x30\x09\x31\x09\x32\x09\x35\x15\x81\x25\x7f\x75\x08\x95\x04\x81\x02\xc0\xc0"
