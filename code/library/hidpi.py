@@ -13,7 +13,6 @@ def char_to_keycode(char):
 
 def test_hid():
     send_text("abcdefghijklmnopqrstuvwxyz1234567890-=[]\\;',./`~!@#$%^&*()_+{}|:\"<>?")
-    send_enter()
 
 # KEY REPORT FUNCTiONS
 def send_key(*keys, delay=0.1):
