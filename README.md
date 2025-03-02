@@ -1,4 +1,4 @@
-# HIDPi
+# HIDPi - Keyboard & Mouse (controller coming soon)
 ## About This Project
 This project focuses on a simple way to set up a Raspberry Pi 4B (and maybe others) as a USB HID device. It can be installed via a one-liner.
 
