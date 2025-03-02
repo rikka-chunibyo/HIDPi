@@ -5,11 +5,19 @@ from hidpi_keys import *
 
 HID_DEVICE = "/dev/hidg0"
 
+
+# UTiLiTY FUNCTiONS
 def char_to_keycode(char):
     """Takes in a character and returns a keycode. The result will always be lowercase"""
     char_lowered = char.lower()
     return KEY_MAPPINGS[char_lowered] if char_lowered in KEY_MAPPINGS else 0x00
 
+def test_hid():
+    send_text("abcdefghijklmnopqrstuvwxyz1234567890-=[]\\;',./`~!@#$%^&*()_+{}|:\"<>?")
+    send_enter()
+
+
+# KEY REPORT FUCNTiONS
 def send_key(*keys):
     """Sends key presses, supporting 6 keys at once as well as modifiers (to use multiple modifiers separate them via pipe (|))"""
     report = [0, 0, 0, 0, 0, 0, 0, 0]
@@ -19,7 +27,7 @@ def send_key(*keys):
             report[2 + i] = key
     
     with open(HID_DEVICE, "rb+") as fd:
-        fd.write(bytes(report)) 
+        fd.write(bytes(report))
         fd.write(bytes(8))
 
 def send_text(text):
@@ -32,6 +40,8 @@ def send_text(text):
         else:
             send_key(char_to_keycode(char))
 
+
+# SiNGLE KEY REPORT FUNCTiONS
 def send_enter():
     """Sends the Enter key"""
     send_key(KEY_ENTER)
@@ -47,7 +57,3 @@ def send_tab():
 def send_escape():
     """Sends the Escape key"""
     send_key(KEY_ESC)
-
-def test_hid():
-    send_text("abcdefghijklmnopqrstuvwxyz1234567890-=[]\\;',./`~!@#$%^&*()_+{}|:\"<>?")
-    send_enter()
