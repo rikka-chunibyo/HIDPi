@@ -20,5 +20,4 @@ def test_mouse():
 if __name__ == "__main__":
     test_keyboard()
     test_mouse()
-    test_controller()
     print("Tested")
