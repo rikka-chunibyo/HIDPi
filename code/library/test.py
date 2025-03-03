@@ -8,9 +8,11 @@ from hidpi.mouse_buttons import *
 def test_keyboard():
     print("Testing keyboard...")
     time.sleep(1)
-    Keyboard.send_text("Hello, HIDPi!")
+    Keyboard.send_text("Hello, HIDPi!", delay=0.25)
     time.sleep(1)
-    Keyboard.hold_key(0, KEY_A)
+    Keyboard.send_key(0, KEY_A, hold=1)
+    time.sleep(1)
+    Keyboard.hold_key(0, KEY_B)
     time.sleep(1)
     Keyboard.release_keys()
     time.sleep(1)
