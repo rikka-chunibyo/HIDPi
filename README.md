@@ -7,7 +7,8 @@ I created this because I was getting really annoyed about the lack of info on us
 I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS lite (32-bit), Debian Bookworm. It probably works on 64-bit but I haven't tried it yet.
 
 > [!IMPORTANT]
-> Install, library, and documentation are in the [wiki](https://github.com/rikka-chunibyo/HIDPi/wiki).
+> Install, and library install, are in the [wiki](https://github.com/rikka-chunibyo/HIDPi/wiki)
+> Docs are [here](https://rikka-chunibyo.github.io/hidpi-docs/hidpi.html)
 
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
