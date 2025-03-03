@@ -27,7 +27,7 @@ class Keyboard:
         return KEY_MAPPINGS.get(char_lowered, 0x00)
 
     @staticmethod
-    def send_key(modifiers, *keys, hold=0):
+    def send_key(modifiers, *keys, delay=0):
         """
         Sends one or more key presses to the HID device, supporting modifier keys.
 
@@ -35,8 +35,8 @@ class Keyboard:
         :type modifiers: int
         :param keys: The keycodes to send (up to 6).
         :type keys: int
-        :param hold: Time in seconds to hold the keys before releasing.
-        :type hold: float, optional
+        :param delay: Time in seconds to hold the keys before releasing.
+        :type delay: float, optional
         """
         report = [0] * 8
         report[0] = modifiers
@@ -44,7 +44,7 @@ class Keyboard:
         for i, key in enumerate(keys[:6]):
             report[2 + i] = key
 
-        Keyboard._send_report(bytes(report), delay=hold)
+        Keyboard._send_report(bytes(report), delay)
 
     @staticmethod
     def hold_key(modifiers, *keys):
@@ -62,14 +62,14 @@ class Keyboard:
         for i, key in enumerate(keys[:6]):
             report[2 + i] = key
 
-        Keyboard._send_report(bytes(report), release=False)
+        Keyboard._send_report(bytes(report), 0, False)
 
     @staticmethod
     def release_keys():
         """
         Releases all currently held keys by sending an empty HID report.
         """
-        Keyboard._send_report(bytes(8), release=False)
+        Keyboard._send_report(bytes(8), 0, False)
 
     @staticmethod
     def send_text(text, delay=0):
@@ -84,10 +84,10 @@ class Keyboard:
         for char in text:
             keycode = Keyboard.char_to_keycode(char)
             if keycode:
-                if char.isupper() or char in SHIFT_REQUIRED_KEYS:
-                    Keyboard.send_key(KEY_LEFT_SHIFT, keycode, hold=delay)
+                if char.isupper():
+                    Keyboard.send_key(KEY_LEFT_SHIFT, keycode, delay=delay)
                 else:
-                    Keyboard.send_key(0, keycode, hold=delay)
+                    Keyboard.send_key(0, keycode, delay=delay)
 
     @staticmethod
     def _send_report(report, delay=0, release=True):

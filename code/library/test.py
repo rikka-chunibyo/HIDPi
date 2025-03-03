@@ -5,15 +5,17 @@ from hidpi.mouse_buttons import *
 
 def test_keyboard():
     print("Testing keyboard...")
+    time.sleep(1)
     Keyboard.send_text("Hello, HIDPi!")
     time.sleep(1)
-    Keyboard.hold_key(KEY_ENTER)
+    Keyboard.hold_key(0x00, KEY_ENTER)
     time.sleep(3)
     Keyboard.release_keys()
     time.sleep(1)
 
 def test_mouse():
     print("Testing mouse...")
+    time.sleep(1)
     Mouse.move(50, 50)
     time.sleep(1)
     Mouse.click(LEFT)
