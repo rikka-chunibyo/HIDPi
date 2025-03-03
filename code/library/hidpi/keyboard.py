@@ -39,9 +39,8 @@ class Keyboard:
         :type hold: float, optional
         """
         report = [0] * 8
-        report[0] = modifiers  # Modifier keys byte
+        report[0] = modifiers
 
-        # Fill normal keys in the report
         for i, key in enumerate(keys[:6]):
             report[2 + i] = key
 
@@ -58,9 +57,8 @@ class Keyboard:
         :type keys: int
         """
         report = [0] * 8
-        report[0] = modifiers  # Modifier keys byte
+        report[0] = modifiers
 
-        # Fill normal keys in the report
         for i, key in enumerate(keys[:6]):
             report[2 + i] = key
 
@@ -108,4 +106,4 @@ class Keyboard:
             if delay:
                 time.sleep(delay)
             if release:
-                fd.write(bytes(8))  # Release all keys
+                fd.write(bytes(8))
