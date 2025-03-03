@@ -8,6 +8,7 @@ I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS
 
 > [!IMPORTANT]
 > Install, and library install, are in the [wiki](https://github.com/rikka-chunibyo/HIDPi/wiki)
+> 
 > Docs are [here](https://rikka-chunibyo.github.io/hidpi-docs/hidpi.html)
 
 ## Issues
