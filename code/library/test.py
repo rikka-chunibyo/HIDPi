@@ -1,5 +1,5 @@
 import time
-from hidpi import Keyboard, Mouse
+from hidpi.* import *
 from hidpi.keyboard_keys import *
 from hidpi.mouse_buttons import *
 
