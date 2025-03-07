@@ -77,7 +77,7 @@ HID_DESCRIPTOR = {
     0x81, 0x00,                     #   Input (Data,Array,Absolute)
     0xC0,                           # End Collection
 
-    # Touch Screen
+    # Touchscreen
     0x05, 0x0D,                 # Usage Page (Digitizers)
     0x09, 0x04,                 # Usage (Touch Screen)
     0xA1, 0x01,                 # Collection (Application)
