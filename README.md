@@ -1,4 +1,4 @@
-# HIDPi - Keyboard & Mouse (controller coming soon)
+# HIDPi- Turn Your RPi Into a HID Device
 
 ## Currently Supported HID Modes
 Keyboard, Mouse, Touchscreen (like mouse but absolute positioning), and Consumer Control (media controls).
