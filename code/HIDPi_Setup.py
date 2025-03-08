@@ -185,7 +185,7 @@ def setup_hid_gadget():
         "echo 900 > /sys/kernel/config/usb_gadget/hid_gadget/configs/c.1/MaxPower",  # Power (Milliamps)
 
         "mkdir -p /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb0",
-        f"echo {','.join(map(str, hid_descriptor))} > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb0/report_desc",
+        f"echo {','.join(map(str, HID_DESCRIPTOR))} > /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb0/report_desc",
         "ln -s /sys/kernel/config/usb_gadget/hid_gadget/functions/hid.usb0 /sys/kernel/config/usb_gadget/hid_gadget/configs/c.1",
         "echo '1' > /sys/kernel/config/usb_gadget/hid_gadget/UDC"
     ]
