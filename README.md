@@ -4,7 +4,7 @@ This project focuses on a simple way to set up a Raspberry Pi 4B/5 (and maybe ot
 
 I created this because I was getting really annoyed about the lack of info on using Pis other than the Zero as USB HID devices. There are many posts that mention doing it, but they never seem to work. There are also many posts saying only the Pico or Zero can do it.
 
-I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS lite (32-bit), Debian Bookworm. It probably works on 64-bit but I haven't tried it yet.
+I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS lite (32-bit), Debian Bookworm. It probably works on 64-bit but I haven't tried it yet. Someone else has tested it on a Raspberry Pi 5, which worked fine.
 
 > [!IMPORTANT]
 > Install, and library are in the [wiki](https://github.com/rikka-chunibyo/HIDPi/wiki)
