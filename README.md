@@ -17,3 +17,5 @@ I usually respond fast, I honestly don't know much about all of this, I just scr
 If there's an issue while your using a different OS, please open an issue about adding support for it, I'd like this project to be as plug-and-play and simple as possible.
 
 Not really about issues but if you have any suggestions for improvements or anything feel free to open a discussion about it.
+
+Please create an issue if something is unclear or wrong, I used AI to generate the comments which are used to generate documentation.
