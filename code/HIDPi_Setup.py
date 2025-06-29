@@ -1,6 +1,7 @@
 import os
 import shutil
 import subprocess
+import time
 import sys
 
 if os.geteuid() != 0:
@@ -21,6 +22,8 @@ LINES_TO_ADD = [
     "modules-load=dwc2,g_hid"
 ]
 
+paths = [] # don't change, this is internally used to shift some commands to the right area in the code
+
 def run_command(command):
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = process.communicate()
@@ -33,6 +36,7 @@ def run_commands(commands):
     for command in commands:
         run_command(command)
 
+# --- INSTALL ---
 def install_self():
     if os.path.abspath(__file__) != INSTALL_PATH:
         print("Copying script to " + INSTALL_PATH + "...")
@@ -46,7 +50,7 @@ Wants=multi-user.target
 
 [Service]
 Type=oneshot
-ExecStart={PYTHON_LOCATION} /usr/local/bin/HIDPi.py
+ExecStart={PYTHON_LOCATION} {INSTALL_PATH}
 RemainAfterExit=yes
 User=root
 
@@ -61,7 +65,7 @@ WantedBy=multi-user.target
         "systemctl daemon-reload",
         f"systemctl enable {SERVICE_NAME}.service"
     ])
-    print(f"{SERVICE_NAME} service installed. It will run on next boot.")
+    print(f"{SERVICE_NAME} service installed. It will run on next boot")
     
 def check_config():
     try:
@@ -74,19 +78,33 @@ def check_config():
 
 def modify_config_txt():
     if check_config():
-        print("Config already modified.")
+        print("Config already modified")
     else:
         print("Modifying " + FIRMWARE_CONFIG_FILE + "...")
         with open(FIRMWARE_CONFIG_FILE, "a") as f:
             f.write("\n" + "\n".join(LINES_TO_ADD) + "\n")
 
-        print("Config updated. You should reboot, it may work without it, but it's highly recommended. Once booted, you should be able to access `/dev/hidg0`, `/dev/hidg1`, etc. for the HID devices")
+        print("Config updated. You must reboot. Once booted, the HIDPi service will finish the installation, you should then be able to access `/dev/hidg0`, `/dev/hidg1`, etc. for the HID devices")
         exit(0)
 
-paths = []
+def wait_for_udc(timeout=10):
+    udc_path = "/sys/class/udc"
+    elapsed = 0
+    while elapsed < timeout:
+        try:
+            devices = os.listdir(udc_path)
+            if devices:
+                print(f"Found UDC device: {devices[0]}")
+                return devices[0]
+        except Exception:
+            pass
+        time.sleep(1)
+        elapsed += 1
+    print("Timeout waiting for UDC device")
+    return None
 
 def create_device(path, protocol, subclass, report_length, report_desc_bytes):
-    fullPath = "/sys/kernel/config/usb_gadget/hid_gadget/functions/" + path
+    fullPath = os.path.join("/sys/kernel/config/usb_gadget/hid_gadget/functions", path)
     run_commands([
         f"mkdir -p {fullPath}",
         f"echo {protocol} > {fullPath}/protocol",
@@ -164,29 +182,96 @@ def setup_hid_gadget():
     ])
 
      # LiNK FUNCTiONS TO GADGET CONFiG
-    for i in range(len(paths)):
-        if not os.path.exists(f"/sys/kernel/config/usb_gadget/hid_gadget/configs/c.1/{os.path.basename(paths[i])}"):
-            run_command(f"ln -s {paths[i]} /sys/kernel/config/usb_gadget/hid_gadget/configs/c.1/")
+    for p in paths:
+        link_path = f"/sys/kernel/config/usb_gadget/hid_gadget/configs/c.1/{os.path.basename(p)}"
+        if not os.path.exists(link_path):
+            run_command(f"ln -s {p} {link_path}")
 
-        
-    run_command("ls /sys/class/udc > /sys/kernel/config/usb_gadget/hid_gadget/UDC")
+    udc_device = wait_for_udc(timeout=15)
+    if udc_device:
+        with open("/sys/kernel/config/usb_gadget/hid_gadget/UDC", "w") as f:
+            f.write(udc_device)
+        print(f"Bound gadget to UDC: {udc_device}")
+    else:
+        print("Failed to bind gadget to UDC device")
 
 def create_udev_rule():
     print("Creating udev rule for hidg...")
     udev_rule = "/etc/udev/rules.d/99-hidg.rules"
     with open(udev_rule, "w") as f:
-        f.write('KERNEL=="hidg*", MODE="0666"\n')
+        f.write('KERNEL=="hidg*", SUBSYSTEM=="hidg", MODE="0666", TAG+="uaccess"\n')
     
     run_command("udevadm control --reload-rules")
     run_command("chmod 666 /dev/hidg*")
-    print("Udev rules reloaded.")
+    print("Udev rules reloaded")
 
-def main():
+
+
+# --- UNINSTALL ---
+def remove_service():
+    if os.path.exists(SERVICE_PATH):
+        print("Removing systemd service...")
+        run_commands([
+            f"systemctl disable {SERVICE_NAME}.service",
+            f"rm -f {SERVICE_PATH}"
+        ])
+        print("Service removed")
+    else:
+        print("Service already removed")
+
+def remove_installed_script():
+    if os.path.exists(INSTALL_PATH):
+        os.remove(INSTALL_PATH)
+        print("Removed installed script")
+    else:
+        print("Installed script not found")
+
+def remove_gadget():
+    print("Removing HID gadget...")
+    udc_path = "/sys/kernel/config/usb_gadget/hid_gadget/UDC"
+    if os.path.exists(udc_path):
+        try:
+            with open(udc_path, "w") as f:
+                f.write("")
+            print("Unbound gadget from UDC")
+        except Exception as e:
+            print(f"Failed to unbind UDC: {e}")
+    run_command("rm -rf /sys/kernel/config/usb_gadget/hid_gadget")
+    print("Gadget directory removed")
+
+def remove_udev_rule():
+    rule_path = "/etc/udev/rules.d/99-hidg.rules"
+    if os.path.exists(rule_path):
+        os.remove(rule_path)
+        print("Udev rule removed")
+    run_command("udevadm control --reload-rules")
+
+
+
+# --- MAIN ---
+def install():
     install_self()
     modify_config_txt()
     setup_hid_gadget()
     create_udev_rule()
     print("HIDPi Initialized")
 
+def uninstall():
+    print("Uninstalling HIDPi...")
+    remove_gadget()
+    remove_udev_rule()
+    remove_service()
+    remove_installed_script()
+    print(f"Uninstallation complete. You may need to modify {FIRMWARE_CONFIG_FILE} manually, as I'd rather not risk breaking your system")
+
 if __name__ == "__main__":
-    main()
+    args = sys.argv[1:]
+    if not args:
+        install() # also runs on boot
+    elif args[0] in ("uninstall", "remove"):
+        uninstall()
+    elif args[0] in ("--help", "-h"):
+        print("Usage:\n  sudo python3 HIDPi.py            # install and activate\n  sudo python3 HIDPi.py uninstall  # revert all* changes")
+    else:
+        print(f"Unknown argument: {args[0]}")
+        print("Run with --help or -h for usage")
