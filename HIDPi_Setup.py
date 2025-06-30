@@ -208,15 +208,77 @@ def remove_installed_script():
 
 def remove_gadget():
     print("Removing HID gadget...")
-    udc_path = "/sys/kernel/config/usb_gadget/hid_gadget/UDC"
-    if os.path.exists(udc_path):
-        try:
+    base = "/sys/kernel/config/usb_gadget/hid_gadget"
+
+    def safe_unbind():
+        udc_path = os.path.join(base, "UDC")
+        if os.path.exists(udc_path):
             with open(udc_path, "w") as f:
                 f.write("")
             print("Unbound gadget from UDC")
-        except Exception as e:
-            print(f"Failed to unbind UDC: {e}")
-    run_command("rm -rf /sys/kernel/config/usb_gadget/hid_gadget")
+
+    def unlink_functions():
+        config_path = os.path.join(base, "configs/c.1")
+        if not os.path.exists(config_path):
+            return
+        for item in os.listdir(config_path):
+            full_path = os.path.join(config_path, item)
+            if os.path.islink(full_path):
+                os.unlink(full_path)
+                print(f"Unlinked function: {full_path}")
+
+    def remove_functions():
+        functions_path = os.path.join(base, "functions")
+        if not os.path.exists(functions_path):
+            return
+        for func in os.listdir(functions_path):
+            func_path = os.path.join(functions_path, func)
+            for filename in os.listdir(func_path):
+                file_path = os.path.join(func_path, filename)
+                try:
+                    os.remove(file_path)
+                except PermissionError as e:
+                    raise RuntimeError(f"Cannot remove {file_path}: {e}")
+            os.rmdir(func_path)
+            print(f"Removed function dir: {func_path}")
+
+    def remove_dirs_in_order():
+        ordered_paths = [
+            "configs/c.1/strings/0x409",
+            "configs/c.1",
+            "strings/0x409",
+            "webusb",
+            "os_desc"
+        ]
+        for rel_path in ordered_paths:
+            abs_path = os.path.join(base, rel_path)
+            if os.path.exists(abs_path):
+                for item in os.listdir(abs_path):
+                    item_path = os.path.join(abs_path, item)
+                    try:
+                        os.remove(item_path)
+                    except Exception as e:
+                        raise RuntimeError(f"Failed to remove {item_path}: {e}")
+                os.rmdir(abs_path)
+                print(f"Removed directory: {abs_path}")
+
+    def remove_root():
+        if os.path.exists(base):
+            leftover = os.listdir(base)
+            if leftover:
+                raise RuntimeError(f"Gadget dir not empty: {leftover}")
+            os.rmdir(base)
+            print(f"Removed gadget root: {base}")
+
+    try:
+        safe_unbind()
+        unlink_functions()
+        remove_functions()
+        remove_dirs_in_order()
+        remove_root()
+    except Exception as e:
+        print(f"ERROR: Gadget removal failed - {e}")
+        raise
 
 def remove_udev_rule():
     rule_path = "/etc/udev/rules.d/99-hidg.rules"
