@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import os
 import shutil
 import subprocess
@@ -139,8 +141,8 @@ def setup_hid_gadget():
     ])
 
     for name, value in [
-        ("idVendor", "0x1d6b"),
-        ("idProduct", "0x0104"),
+        ("idVendor", "0x1f00"),
+        ("idProduct", "0x2012"),
         ("strings/0x409/serialnumber", SERIAL_NUMBER),
         ("strings/0x409/manufacturer", MANUFACTURER),
         ("strings/0x409/product", PRODUCT),
@@ -155,15 +157,15 @@ def setup_hid_gadget():
         b"\x05\x01\x09\x06\xa1\x01\x05\x07\x19\xe0\x29\xe7\x15\x00\x25\x01"
         b"\x75\x01\x95\x08\x81\x02\x95\x01\x75\x08\x81\x01\x95\x05\x75\x01"
         b"\x05\x08\x19\x01\x29\x05\x91\x02\x95\x01\x75\x03\x91\x01\x95\x06"
-        b"\x75\x08\x15\x00\x26\xa4\x00\x05\x07\x19\x00\x29\xa4\x81\x00\xc0"
+        b"\x75\x08\x15\x00\x25\x65\x05\x07\x19\x00\x29\x65\x81\x00\xc0"
     ))
 
     # MOUSE
     create_device("hid.usb1", 1, 1, 4, (
-        b"\x05\x01\x09\x02\xa1\x01\x09\x01\xa1\x00\x05\x09\x19\x01\x29\x03"
-        b"\x15\x00\x25\x01\x75\x01\x95\x03\x81\x02\x75\x05\x95\x01\x81\x01"
-        b"\x05\x01\x09\x30\x09\x31\x15\x81\x25\x7f\x75\x08\x95\x02\x81\x06"
-        b"\xc0\xc0"
+            b"\x05\x01\x09\x02\xa1\x01\x09\x01\xa1\x00\x05\x09\x19\x01\x29\x03"
+            b"\x15\x00\x25\x01\x95\x03\x75\x01\x81\x02\x95\x01\x75\x05\x81\x03"
+            b"\x05\x01\x09\x30\x09\x31\x15\x81\x25\x7f\x75\x08\x95\x02\x81\x06"
+            b"\xc0\xc0"
     ))
 
     # LiNK FUNCTiONS TO GADGET CONFiG
@@ -285,7 +287,14 @@ def remove_udev_rule():
     if os.path.exists(rule_path):
         os.remove(rule_path)
         print("Udev rule removed")
-    run_command("udevadm control --reload-rules")
+    else:
+        print("Udev rule not found; skipping")
+
+    run_commands([
+        "udevadm control --reload-rules",
+        "udevadm trigger"
+    ])
+    print("Udev rules reloaded and trigger applied")
 
 
 
