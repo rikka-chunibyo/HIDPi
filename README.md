@@ -11,6 +11,10 @@ I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS
 > 
 > Docs are [here](https://rikka-chunibyo.github.io/hidpi-docs/hidpi.html)
 
+## TODO
+- [x] Fix keyboard on Windows
+- [ ] Fix mouse on Windows
+
 ## Issues
 I usually respond fast, I honestly don't know much about all of this, I just scrapped together some commands and stuff, but I'll try my best to help. 
 
