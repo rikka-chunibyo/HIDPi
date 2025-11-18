@@ -8,7 +8,7 @@ I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS
 
 To connect the Raspberry Pi to a computer as a USB HID device, you must use a USB-A to USB-C cable. A USB-C to USB-C cable should also work if your computer has a USB-C port. You may NOT use one of the USB-A ports on the Pi to plug it into a computer. The USB cable MUST support data transfer/have data wires.
 
-Currently, the mouse doesn't work properly on Windows. You may still use it via using raw commands from the manual section, though you may have to edit the command. I originally built this for macOS, so all the features were tested on it, Windows came after.
+Currently, the mouse doesn't work properly on Windows. You may still use it via using raw commands from the manual usage section in the wiki, though you may have to edit the command. I originally built this for macOS, so all the features were tested on it. Windows came after.
 
 > [!IMPORTANT]
 > Install and library are in the [wiki](https://github.com/rikka-chunibyo/HIDPi/wiki)
