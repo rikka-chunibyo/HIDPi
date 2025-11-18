@@ -6,7 +6,7 @@ I created this because I was getting really annoyed about the lack of info on us
 
 I've tested it on a Raspberry Pi 4B 8GB model from 2018, running Raspberry Pi OS lite (32-bit), Debian Bookworm. It probably works on 64-bit but I haven't tried it yet. We have 2 confirmed tests on a Raspberry Pi 5 (specifics can be found [here](https://github.com/rikka-chunibyo/HIDPi/wiki/Compatibility)).
 
-To connect the Raspberry Pi to a computer as a HID device, you must use a USB-A to USB-C cable. A USB-C to USB-C should also work if you're computer has a USB-C port. You may NOT use one of the USB-A ports on the Pi to plug it into a computer. The USB cable MUST support data transfer/have data wires.
+To connect the Raspberry Pi to a computer as a USB HID device, you must use a USB-A to USB-C cable. A USB-C to USB-C cable should also work if your computer has a USB-C port. You may NOT use one of the USB-A ports on the Pi to plug it into a computer. The USB cable MUST support data transfer/have data wires.
 
 Currently, the mouse doesn't work properly on Windows. You may still use it via using raw commands from the manual section, though you may have to edit the command. I originally built this for macOS, so all the features were tested on it, Windows came after.
 
