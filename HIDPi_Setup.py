@@ -46,7 +46,7 @@ def run_commands(commands):
         run_command(command)
 
 
-# --- INSTALL ---
+# INSTALL
 def install_self():
     if os.path.abspath(__file__) != INSTALL_PATH:
         print("Copying script to " + INSTALL_PATH + "...")
@@ -203,10 +203,10 @@ def remove_service():
         ])
         print("Service removed")
 
-def remove_installed_script():
+def remove_script():
     if os.path.exists(INSTALL_PATH):
         os.remove(INSTALL_PATH)
-        print("Removed installed script")
+        print("Removed script")
 
 def remove_gadget():
     print("Removing HID gadget...")
@@ -244,7 +244,7 @@ def remove_gadget():
             os.rmdir(func_path)
             print(f"Removed function dir: {func_path}")
 
-    def remove_dirs_in_order():
+    def remove_dirs():
         ordered_paths = [
             "configs/c.1/strings/0x409",
             "configs/c.1",
@@ -276,7 +276,7 @@ def remove_gadget():
         safe_unbind()
         unlink_functions()
         remove_functions()
-        remove_dirs_in_order()
+        remove_dirs()
         remove_root()
     except Exception as e:
         print(f"ERROR: Gadget removal failed - {e}")
@@ -311,7 +311,7 @@ def uninstall():
     remove_gadget()
     remove_udev_rule()
     remove_service()
-    remove_installed_script()
+    remove_script()
     print(f"Uninstallation complete. You may need to modify {FIRMWARE_CONFIG_FILE} manually, as I'd rather not risk breaking your system")
 
 if __name__ == "__main__":
